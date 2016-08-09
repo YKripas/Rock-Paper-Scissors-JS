@@ -19,11 +19,17 @@
 
         var compare = function(choice1, choice2) {
 
-            /*Put in safeguard against invalid words
-            if (choice1 !== "rock") {
-                alert("You have entered an invalid word");
-            }*/
+            //Put in safeguard against invalid words
+            if ( (choice1 == "rock") || (choice1 == "paper") || (choice1 == "scissors") ) {
 
+            }
+            else {
+                alert("Wrong value!" + "<br />" + "Please refresh the page and input one of the correct values");
+
+                return;
+            }
+            /////////////////////////////
+            //Start the main comparison function
             if (choice1 === choice2) {
                 console.log ("The result is a tie!")
             } else if (choice1 === "rock") {
@@ -44,7 +50,7 @@
                 } else {
                     console.log ("scissors win");
                 }
-            }
+            }//Ending comparison function
         }
 
         compare(userChoice, computerChoice);
