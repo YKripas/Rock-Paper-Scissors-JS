@@ -6,50 +6,88 @@
 
 <body>
     <script type="text/javascript">
-        var userChoice = prompt("Do you choose rock, paper or scissors?");
+        var userChoice = prompt("Do you choose rock, paper, scissors or rope?");
+
+        //Randomize computer's choices
         var computerChoice = Math.random();
-        if (computerChoice < 0.34) {
+        if (computerChoice <= 0.24) {
             computerChoice = "rock";
-        } else if (computerChoice <= 0.67) {
+        } else if (computerChoice <= 0.50) {
             computerChoice = "paper";
-        } else {
-            computerChoice = "scissors";
         }
+        else if (computerChoice <= 0.75) {
+            computerChoice = "scissors";
+        } else {
+            computerChoice = "rope";
+        }
+
+
         console.log("Computer: " + computerChoice);
 
+        //Starting the comparing function
         var compare = function(choice1, choice2) {
 
             //Put in safeguard against invalid words
-            if ( (choice1 == "rock") || (choice1 == "paper") || (choice1 == "scissors") ) {
+            if ( (choice1 == "rock") || (choice1 == "paper") || (choice1 == "scissors") || (choice1 == "rope") ) {
 
             }
             else {
-                alert("Wrong value!" + "<br />" + "Please refresh the page and input one of the correct values");
+                alert("Wrong value!");
+                document.write("Please refresh the page and input one of the correct values");
 
                 return;
             }
             /////////////////////////////
-            //Start the main comparison function
+            //TIE
             if (choice1 === choice2) {
-                console.log ("The result is a tie!")
-            } else if (choice1 === "rock") {
+                console.log ("The result is a tie!");
+            }
+            //ROCK vs SCISSORS
+            else if (choice1 === "rock") {
                 if (choice2 === "scissors") {
                     console.log ("rock wins");
-                } else {
+                }
+                if (choice2 === "rope") {
+                    console.log("rope wins");
+                }
+                else {
                     console.log ("paper wins");
                 }
-            } else if (choice1 === "paper") {
+            }
+            //PAPER vs ROCK
+            else if (choice1 === "paper") {
                 if (choice2 === "rock") {
                     console.log ("paper wins");
-                } else {
-                    console.log ("scissors win");
                 }
-            } else if (choice1 === "scissors") {
+                if (choice2 === "scissors") {
+                    console.log("scissors win");
+                }
+                 else {
+                    console.log ("paper wins");
+                }
+            }
+            //SCISSORS vs ROCK
+            else if (choice1 === "scissors") {
                 if (choice2 === "rock") {
                     console.log ("rock wins");
-                } else {
+                }
+                if (choice2 === "rope") {
+                    console.log("scrissors win");
+                }
+                else {
                     console.log ("scissors win");
                 }
+            //ROPE vs ROCK
+                /*else if (choice1 === "rope") {
+                    if (choice2 === "rock") {
+                        console.log ("rope wins");
+                    }
+                    if (choice2 === "paper") {
+                        console.log("paper wins");
+                    }
+                    else {
+                        console.log ("scissors win");
+                    }*/
             }//Ending comparison function
         }
 
